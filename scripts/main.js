@@ -1,3 +1,15 @@
+let navegador = navigator.userAgent;
+if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+ 
+    console.log("Estás usando un móvil");
+    var barra_sonido = document.getElementById("control_volumen")
+    barra_sonido.style.display = "none"
+
+} else {
+    console.log("No estás usando un móvil");
+}
+
+
 
 var body = document.getElementById("body");
 
@@ -20,15 +32,15 @@ botonplay.addEventListener("click", function ejecucionSonido(){
 
 })
 
+
 var texto_selector = document.getElementById("texto_selector")
-var botonizq = document.getElementById("botonizq")
-var botondr = document.getElementById("botondr")
+var boton_derecha = document.getElementById("botondr");
+var boton_izquierda = document.getElementById("botonizq")
 
 var estacion = 1
 
 
-
-function pasardr(){
+boton_derecha.addEventListener("click", function pasardr(){
     if(estacion == 1){
         estacion = 2
         body.style.backgroundColor = "rgb(103, 216, 113)"
@@ -64,10 +76,11 @@ function pasardr(){
         texto_selector.classList.remove('forest')
         texto_selector.classList.add('lluvia')
     }
-}
+})
 
 
-function pasarizq(){
+
+boton_izquierda.addEventListener("click", function pasarizq(){
     if(estacion == 1){
         estacion = 3
         audio.setAttribute('src', 'src/audios/forest.mp3')
@@ -103,8 +116,7 @@ function pasarizq(){
         texto_selector.classList.remove('fuego')
         texto_selector.classList.add('lluvia')
     }
-}
-
+})
 
 
 audio.volume = document.getElementById("control_volumen").value
