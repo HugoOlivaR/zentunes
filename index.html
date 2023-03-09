@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenTunes Home</title>
+    <link rel="stylesheet" href=css/main.css>
+    <link rel="stylesheet" href=css/tempos.css>
+</head>
+<body class="body" id="body">
+    <div class="boton_play" id="play">
+        <img src="src/img/play.png" id="icono_play" class="icono_play">
+    </div>
+
+    <div class="divSelector">
+        <button class="flechaSelectorIzq" id="botonizq"><</button>
+        <p class="lluvia" id="texto_selector"></p>
+        <button class="flechaSelectorDr" id="botondr">></button>
+
+    </div>
+
+    <input type="range" id="control_volumen" step=".02" min="0" max="1" value="0.5" class="control_volumen">
+
+
+    <div class="div_tiempos" id="div_tiempos">
+        <div class="botonCrono" id="botonCrono">crono</div>
+        <div class="reloj" id="reloj"></div>
+        <div class="botonTempo" id="botonTempo">tempo</div>
+    </div>
+
+    <div class="div_crono" id="div_crono">
+        <div class="div_texto_crono">
+            <p id="texto_crono">00:00:00</p>
+        </div>
+
+        <div class="botones_crono">
+            <div class="inicio_crono" id="inicio_crono">
+                <img src="src/img/play2.png" class="img_crono" id="img_inicio_crono">
+            </div>
+            <div class="reinicio_crono" id="reinicio_crono">
+                <img src="src/img/reiniciar.png" class="img_crono" id="img_reinicio_crono">
+            </div>
+        </div>
+    </div>
+
+
+    <audio src="src/audios/rain.mp3" id="audio" loop>  
+        Tu navegador no soporta el elemento<code>audio</code>.  
+    </audio>
+
+
+
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/tempos.js"></script>
+</body>
+</html>
