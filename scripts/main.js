@@ -9,8 +9,6 @@ if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i
     console.log("No estás usando un móvil");
 }
 
-
-
 var body = document.getElementById("body");
 
 var botonplay = document.getElementById("play");
