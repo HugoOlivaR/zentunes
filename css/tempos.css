@@ -12,21 +12,12 @@
     align-items: center;
     justify-content: center;
     transition: all 0.5s ease-in-out;
+    background-color: rgb(214, 214, 214, 0.5);
+    box-shadow: 0 0 30px 3px #ffffff;
+    border-radius: 40px;
 }
 
-
-.botonCrono{
-    background-color: greenyellow;
-    height: 70%;
-    width: 20%;
-    margin: 3%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.5s ease-in-out;
-}
 .reloj{
-    background-color: blueviolet;
     height: 70%;
     width: 50%;
     margin: 3%;
@@ -37,8 +28,10 @@
     font-size: max(2.5vw, 25px);
     
 }
-.botonTempo{
-    background-color: coral;
+
+
+.botonCrono{
+    cursor: pointer;
     height: 70%;
     width: 20%;
     margin: 3%;
@@ -54,10 +47,12 @@
     min-height: 70px;
     width: 10vw;
     height: 7vw;
-    background-color: crimson;
+    background-color: rgb(214, 214, 214, 0.5);
+    box-shadow: 0 0 10px 1px #ffffff;
+    border-radius: 10px;
     position: absolute;
     top: 25%;
-    left: 29%;
+    left: 30%;
     transform: translate(-50%, -75%);
     transition: all 0.5s ease;
     display: none;
@@ -68,7 +63,6 @@
     width: 90%;
     height: 40%;
     margin: 5%;
-    background-color: rgb(123, 130, 233);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,7 +73,6 @@
     width: 90%;
     height: 40%;
     margin: 5%;
-    background-color: rgb(53, 220, 20);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,7 +83,6 @@
 .inicio_crono{
     height: 100%;
     width: 30%;
-    background-color: blueviolet;
     margin-right: 10%;
     display: flex;
     align-items: center;
@@ -99,7 +91,7 @@
 .reinicio_crono{
     height: 100%;
     width: 30%;
-    background-color: blueviolet;
+;
     margin-left: 10%;
     display: flex;
     align-items: center;
@@ -109,4 +101,123 @@
 .img_crono{
     transition: ease 0.5s;
     height: 70%;
+}
+
+
+
+
+
+
+.botonTempo{
+    cursor: pointer;
+    height: 70%;
+    width: 20%;
+    margin: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+}
+
+
+.div_tempo{
+    min-width: 100px;
+    min-height: 70px;
+    width: 10vw;
+    height: 7vw;
+    background-color: rgb(214, 214, 214, 0.5);
+    box-shadow: 0 0 10px 1px #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    top: 25%;
+    left: 70%;
+    transform: translate(-50%, -75%);
+    transition: all 0.5s ease;
+    display: none;
+    opacity: 0;
+}
+
+.div_texto_tempo{
+    width: 90%;
+    height: 40%;
+    margin: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+    font-size: max(1.5vw, 25px);
+}
+.botones_tempo{
+    width: 90%;
+    height: 40%;
+    margin: 5%;
+    display: flex;
+    transition: 0.5s ease-in-out;
+    top: 50%;
+}
+
+.inicio_tempo{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.reinicio_tempo{
+    height: 100%;
+    width: 30%;
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img_tempo{
+    transition: ease 0.5s;
+    height: 70%;
+}
+
+.sumar-1{
+    position: absolute;
+    height: 15%;
+    width: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 63%;
+    
+}
+.sumar-10{
+    position: absolute;
+    height: 15%;
+    width: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 80%;
+    
+}
+.restar-1{
+    position: absolute;
+    height: 15%;
+    width: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 63%;
+    top: 75%;
+    
+
+}
+.restar-10{
+    position: absolute;
+    height: 15%;
+    width: 14%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 80%;
+    top: 75%;
+    
+
 }
