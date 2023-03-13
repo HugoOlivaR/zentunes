@@ -5,31 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="src/img/icono.png">
-    <title>ZenTunes Home</title>
-    <link rel="stylesheet" href=css/main.css>
-    <link rel="stylesheet" href=css/tempos.css>
+    <title>ZenTunes Home 0.2</title>
 </head>
 <body class="body" id="body">
     <div class="boton_play" id="play">
-        <img src="src/img/play.png" id="icono_play" class="icono_play">
+        <img src="src/img/play.png" id="icono_play" class="icono_play" draggable="false">
     </div>
 
     <div class="divSelector">
-        <button class="flechaSelectorIzq" id="botonizq"><</button>
-        <p class="lluvia" id="texto_selector"></p>
-        <button class="flechaSelectorDr" id="botondr">></button>
+        <div class="flechaSelectorIzq" id="botonizq">
+            <img src="src/img/flecha_izquierda.png" class="img_selector">
+        </div>
+        <p class="bosque" id="bosque"></p>
+        <div class="flechaSelectorDr" id="botondr">
+            <img src="src/img/flecha_derecha.png" class="img_selector">
+        </div>
 
     </div>
 
     <input type="range" id="control_volumen" step=".02" min="0" max="1" value="0.5" class="control_volumen">
+    <img src="src/img/sonido.png" class="img_audio" id="img_audio">
 
 
     <div class="div_tiempos" id="div_tiempos">
         <div class="botonCrono" id="botonCrono">
-            <img src="src/img/cronometro.png" class="img_crono">
+            <img src="src/img/cronometro.png" class="img_crono" draggable="false">
         </div>
         <div class="reloj" id="reloj"></div>
-        <div class="botonTempo" id="botonTempo">tempo</div>
+        <div class="botonTempo" id="botonTempo">
+            <img src="src/img/temporizador.png" class="img_crono" draggable="false">
+        </div>
     </div>
 
     <div class="div_crono" id="div_crono">
@@ -39,22 +44,49 @@
 
         <div class="botones_crono">
             <div class="inicio_crono" id="inicio_crono">
-                <img src="src/img/play2.png" class="img_crono" id="img_inicio_crono">
+                <img src="src/img/play2.png" class="img_crono" id="img_inicio_crono" draggable="false">
             </div>
             <div class="reinicio_crono" id="reinicio_crono">
-                <img src="src/img/reiniciar.png" class="img_crono" id="img_reinicio_crono">
+                <img src="src/img/reiniciar.png" class="img_crono" id="img_reinicio_crono" draggable="false">
             </div>
         </div>
     </div>
 
 
-    <audio src="src/audios/rain.mp3" id="audio" loop>  
+    <div class="div_tempo" id="div_tempo">
+        <div class="div_texto_tempo">
+            <p id="texto_tempo">00:00:00</p>
+        </div>
+
+        <div class="botones_tempo">
+            <div class="inicio_tempo" id="inicio_tempo">
+                <img src="src/img/play2.png" class="img_tempo" id="img_inicio_tempo" draggable="false">
+            </div>
+            <div class="reinicio_tempo" id="reinicio_tempo">
+                <img src="src/img/reiniciar.png" class="img_tempo" id="img_reinicio_tempo" draggable="false">
+            </div>
+
+            <div id="sumar-1" class="sumar-1">+</div>
+            <div id="sumar-10" class="sumar-10">++</div>
+            <div id="restar-1" class="restar-1">-</div>
+            <div id="restar-10" class="restar-10">--</div>
+        </div>
+    </div>
+
+
+    <audio src="src/audios/bosque.mp3" id="audio" loop>  
         Tu navegador no soporta el elemento<code>audio</code>.  
     </audio>
 
+    <audio id="endTempo">
+        <source src="src/audios/pitido.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de sonidos.
+    </audio>
 
+    
 
-
+    <link rel="stylesheet" href=css/main.css>
+    <link rel="stylesheet" href=css/tempos.css>
     <script src="scripts/main.js"></script>
     <script src="scripts/tempos.js"></script>
 </body>
