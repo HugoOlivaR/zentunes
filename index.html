@@ -1,16 +1,81 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8E482996VV"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-8E482996VV');
+    </script>
+
     <meta charset="UTF-8">
+    <meta name="language" content="spanish">
+    <meta name="copyright" content="zentunes.es">
+    <meta name="audience" content="all">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="src/img/icono.png">
-    <title>ZenTunes Home</title>
+    <meta property="og:image" content="src/img/letras_logo.png">
+    <meta name="description" content="ZenTunes ofrece sonidos relajantes en línea para ayudarte a concentrarte y relajarte. Actualmente estamos en fase BETA, ¡tu opinión es valiosa! Contáctanos.">
+    <meta name="keywords" content="Sonidos relajantes, Sonidos ambientales, Sonidos naturaleza">
+
+    <link rel="preload" href="src/img/fondos/bosque.png" as="image">
+    <link rel="preload" href="src/img/fondos/ciudad.png" as="image">
+    <link rel="preload" href="src/img/fondos/fuego.png" as="image">
+    <link rel="preload" href="src/img/fondos/playa.png" as="image">
+
+    <title>ZenTunes - Sonidos relajantes en línea</title>
+    <link rel="stylesheet" href=css/main.css>
+    <link rel="stylesheet" href=css/tempos.css>
+    
 </head>
 <body class="body" id="body">
+
+    <div id="hola"></div>
+
+    <div id="div_carga" class="div_carga">
+        <div id="carga" class="carga"></div>
+    </div>
+      
+    
+    <div class="alert" id="alerta">
+        <span class="closebtn" onclick="cerrarAlerta()">
+          <img src="src/img/cerrar.png" class="img_cerrar">
+        </span>
+        <h2 class="titulo1">Bienvenido a ZenTunes.es</h2>
+        <h3 class="titulo2">Ten en cuenta que la web está en fase BETA.</h3>
+        <h3 class="titulo3">Estamos trabajando para mejorar.</h3>
+    </div>          
+
+
+    <div class="contenido" id="contenido">  
+    </div>
+
+    <div class="div_zentunes_apagado" id="div_zentunes">
+        <img src="src/img/logo_sin_letras.png" class="logo_mas" id="logo_mas">
+
+        <div class="contenido_abierto" id="contenido_abierto">
+            <img src="src/img/letras_logo.png" class="logo_grande" id="logo_grande">
+            <div class="textos" id="textos">
+                <h2 class="texto1">¡Gracias por usar ZenTunes BETA!</h2>
+                <p class="texto2">Si tienes alguna sugerencia, mejora para la web o duda, puedes escribir a "info@zentunes.es". O pulsar el siguiente botón.</p>
+            </div>
+            <a href="mailto:info@zentunes.es" class="boton_correo">
+                <img src="src/img/correo.png" class="img_correo">
+            </a>
+        </div>
+        
+    </div>
+
+
+
     <div class="boton_play" id="play">
         <img src="src/img/play.png" id="icono_play" class="icono_play" draggable="false">
     </div>
+
+
 
     <div class="divSelector">
         <div class="flechaSelectorIzq" id="botonizq">
@@ -23,8 +88,15 @@
 
     </div>
 
-    <input type="range" id="control_volumen" step=".02" min="0" max="1" value="0.5" class="control_volumen">
-    <img src="src/img/sonido.png" class="img_audio" id="img_audio">
+
+
+
+
+    <div class="div_audio">
+        <input type="range" id="control_volumen" step=".02" min="0" max="1" value="0.5" class="control_volumen">
+        <img src="src/img/sonido.png" class="img_audio" id="img_audio">
+    </div>
+
 
 
     <div class="div_tiempos" id="div_tiempos">
@@ -36,6 +108,7 @@
             <img src="src/img/temporizador.png" class="img_crono" draggable="false">
         </div>
     </div>
+
 
     <div class="div_crono" id="div_crono">
         <div class="div_texto_crono">
@@ -55,7 +128,11 @@
 
     <div class="div_tempo" id="div_tempo">
         <div class="div_texto_tempo">
-            <p id="texto_tempo">00:00:00</p>
+            <input type="text" class="texto_tempo" id="texto_tempo_h" placeholder="HH" maxlength="2" pattern="[0-5]?[0-9]|60">
+            <p>:</p>
+            <input type="text" class="texto_tempo" id="texto_tempo_m" placeholder="MM" maxlength="2" pattern="[0-5]?[0-9]|60">
+            :
+            <input type="text" class="texto_tempo" id="texto_tempo_s" placeholder="SS" maxlength="2" pattern="[0-5]?[0-9]|60">
         </div>
 
         <div class="botones_tempo">
@@ -66,12 +143,27 @@
                 <img src="src/img/reiniciar.png" class="img_tempo" id="img_reinicio_tempo" draggable="false">
             </div>
 
-            <div id="sumar-1" class="sumar-1">+</div>
-            <div id="sumar-10" class="sumar-10">++</div>
-            <div id="restar-1" class="restar-1">-</div>
-            <div id="restar-10" class="restar-10">--</div>
+            <div id="config_tempo" class="config_tempo">
+                <img src="src/img/engranaje.png" class="img_tempo" id="img_config_tempo" draggable="false">
+            </div>
         </div>
     </div>
+
+
+    <div class="div_config_tempo" id="div_config_tempo">
+        <div class="ajuste1">
+            <input type="checkbox" class="box1" id="box1" checked>
+            <p class="p1">Alerta cuando acabe el temporizador</p>
+        </div>
+        <div class="ajuste2">
+            <input type="checkbox" class="box2" id="box2">
+            <p class="p2">Pausar el sonido cuando acabe el temporizador</p>
+        </div>
+    </div>
+
+
+
+
 
 
     <audio src="src/audios/bosque.mp3" id="audio" loop>  
@@ -83,11 +175,12 @@
         Tu navegador no soporta la reproducción de sonidos.
     </audio>
 
+
     
 
-    <link rel="stylesheet" href=css/main.css>
-    <link rel="stylesheet" href=css/tempos.css>
     <script src="scripts/main.js"></script>
     <script src="scripts/tempos.js"></script>
+
+    
 </body>
 </html>

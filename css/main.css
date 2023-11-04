@@ -1,11 +1,19 @@
-.body{
-    display: flex;
-    min-width: 100vh;
+body{
+    display: absolute;
     padding: 0;
     margin: 0;
-    background-color: rgb(6, 177, 29);
+    overflow: hidden;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-image: url("../src/img/fondos/bosque.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     user-select: none;
     transition: 0.5s ease;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 a{
@@ -13,13 +21,149 @@ a{
     color: inherit;
 }
 
+.contenido{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(194, 112, 248, 0.5);
+    z-index:3;
+    opacity: 0;
+    transition: 0.3s;
+    display: none;
+    overflow: hidden;
+}
+
+
+/* RUEDA CARGA */
+
+.div_carga{
+    background-color: rgb(191, 148, 219, 0.9);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index: 10000;
+}
+
+.carga{
+    border: 15px solid #ccc;
+    border-top-color: aqua;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    -webkit-animation: 1s rotate linear infinite;
+    animation: 1s rotate linear infinite;
+
+}
+
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+
+/* ALERTA INICIAL */
+
+.alert{
+    position: absolute;
+    width: 40%;
+    height: 60%;
+    background-color: rgb(191, 148, 219);
+    box-shadow: 0 0 30px 3px #d1bdff;
+    z-index: 999;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: aparecer 0.5s forwards;
+}
+
+.cerrando {
+    animation: desaparecer 0.5s forwards;
+}
+
+@keyframes aparecer {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes desaparecer {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+}
+
+.closebtn{
+    cursor: pointer;
+    position: absolute;
+    left: 7%;
+    top: 10%;
+    width: 7%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img_cerrar{
+    position: absolute;
+    height: 70%;
+}
+.titulo1{
+    position: absolute;
+    top: 25%;
+    text-align: center;
+}
+
+.titulo2{
+    position: absolute;
+    top: 50%;
+    text-align: center;
+}
+
+.titulo3{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    text-align: center;
+}
+
+
+
+/* BOTON PLAY */
+
 .boton_play{
     min-width: 70px;
     min-height: 70px;
     height: 8vw;
     width: 8vw;
     display: flex;
-    background-color: rgb(214, 214, 214, 0.5);
+    background-color: rgb(214, 214, 214, 0.8);
     border: solid black 5px;
     border-radius: 100px;
     justify-content: center;
@@ -39,10 +183,18 @@ input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.8);
     height: 0.2rem;
     border-radius: 10px;
 }
+
+.icono_play{
+    height: 60%;
+}
+
+
+
+/* AUDIO */
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
@@ -52,38 +204,50 @@ input[type="range"]::-webkit-slider-thumb {
     width: 0.5rem;    
 }
 
-.control_volumen{
-    padding: 0;
-    margin: 0;
+
+.div_audio{
+    height: 25vh;
+    width: 5vh;
     position: absolute;
     top: 35%;
-    left: 60%;
-    transform: translate(-55%, -66%);
+    left: 65%;
+}
+
+.control_volumen{
+    position: absolute;
+    top: 35%;
+    left: -110%;
     rotate: -90deg;
     width: 15vh;
     min-width: 100px;
     cursor: pointer;
-    background: red;
 }
 
 .img_audio{
+    cursor: pointer;
     position: absolute;
-    left: 63%;
-    top: 55%;
+    left: 50%;
+    top: 90%;
     height: 1.5rem;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    background-color: rgb(214, 214, 214, 0.8);
+    box-shadow: 0 0 10px 1px #ffffff;
+    border-radius: 5px;
 }
 
 
-.icono_play{
-    height: 60%;
-}
+
+
+/* ESTACIONES */
+
 
 .divSelector{
-    min-width: 160px;
+    min-width: 180px;
     min-height: 55px;
     width: 15vw;
     height: 5vw;
-    background-color: rgb(214, 214, 214, 0.5);
+    background-color: rgb(214, 214, 214, 0.8);;
     box-shadow: 0 0 30px 3px #ffffff;
     position: absolute;
     top: 70%;
@@ -140,8 +304,6 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 
-
-
 .lluvia::before{
     content: "Lluvia";
     font-size: 1.5rem;
@@ -161,8 +323,118 @@ input[type="range"]::-webkit-slider-thumb {
 
 
 
-/* EFECTO LLUVIA */
 
+/* BOTON SABER MAS */
+
+.div_zentunes_apagado{
+    position: absolute;
+    height: 6vw;
+    width: 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 3vh;
+    right: 2%;
+    transition: 0.6s;
+    border-radius: 15px;
+    background-color: rgba(248, 248, 248, 0.8);
+    box-shadow: 0 0 10px 1px #ffffff;
+    min-width: 60px;
+    min-height: 60px;
+    z-index: 2;
+    user-select: none;
+}
+
+.logo_mas{
+    position: absolute;
+    height: 80%;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+
+
+.div_zentunes_encendido{
+    position: absolute;
+    height: 70%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 10%;
+    right: 50%;
+    transform: translate(50%);
+    transition: 0.6s;
+    border-radius: 15px;
+    background-color: rgba(248, 248, 248, 1);
+    box-shadow: 0 0 10px 1px #ffffff;
+    z-index: 5;
+    min-width: 350px;
+    user-select: none;
+    overflow: hidden;
+}
+
+
+.contenido_abierto{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 1s;
+}
+
+.logo_grande{
+    position: absolute;
+    height: 20%;
+    top: 5%;
+}
+
+.textos{
+    position: absolute;
+    height: 35%;
+    width: 80%;
+    top: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.texto1{
+    position: absolute;
+    font-size: 140%;
+    text-align: center;
+}
+
+.texto2{
+    position: absolute;
+    font-size: 120%;
+    top: 40%;
+    text-align: center;
+}
+
+.img_correo{
+    position: absolute;
+    height: 10%;
+    left: 50%;
+    top: 80%;
+    transition: 0.5s;
+    border-radius: 10px;
+    border: black solid 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    transform: translate(-50%, -40%);
+}
+
+.img_correo:hover{
+    height: 12%;
+    box-shadow: 0 0 30px 2px #ffffff;
+}
+
+
+/* EFECTO LLUVIA */
 
 i{
     position: absolute;
@@ -173,6 +445,10 @@ i{
 	animation: raining 5s linear Infinite;
 }
 
+#gotas_mobile{
+    animation: raining_mobile 5s linear Infinite;
+}
+
 
 @keyframes raining{
     0%{
@@ -181,5 +457,15 @@ i{
 
 	100%{
         transform: translateY(95vh);
+    }
+}
+
+@keyframes raining_mobile{
+    0%{
+        transform: translateY(0px)
+    }
+
+	100%{
+        transform: translateY(85vh);
     }
 }
