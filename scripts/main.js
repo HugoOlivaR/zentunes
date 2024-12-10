@@ -31,7 +31,7 @@ if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i
     div_config_tempo.className = "div_config_tempo_movil"
 
 
-
+    var test = "esto es una prueba"
 
 
     var img_audio = document.getElementById("img_audio")
